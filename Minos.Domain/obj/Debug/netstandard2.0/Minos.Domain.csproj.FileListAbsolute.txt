@@ -1,0 +1,9 @@
+F:\00_Project\20_Minos\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.deps.json
+F:\00_Project\20_Minos\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.dll
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.csprojAssemblyReference.cache
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.AssemblyInfoInputs.cache
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.AssemblyInfo.cs
+F:\00_Project\20_Minos\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.pdb
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.dll
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.pdb
+F:\00_Project\20_Minos\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.csproj.CoreCompileInputs.cache
