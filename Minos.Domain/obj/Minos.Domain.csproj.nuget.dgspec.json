@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj": {}
+    "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj": {}
   },
   "projects": {
-    "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
+    "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj",
+        "projectUniqueName": "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj",
         "projectName": "Minos.Domain",
-        "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj",
-        "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
-        "outputPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\obj\\",
+        "projectPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj",
+        "packagesPath": "C:\\Users\\ngkang917\\.nuget\\packages\\",
+        "outputPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ngkang917\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
