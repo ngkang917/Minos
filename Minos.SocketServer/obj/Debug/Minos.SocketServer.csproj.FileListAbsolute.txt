@@ -17,3 +17,7 @@ F:\00_Project\30_Minos\Minos\Minos.SocketServer\obj\Debug\Minos.SocketServer.csp
 F:\00_Project\30_Minos\Minos\Minos.SocketServer\obj\Debug\Minos.SocketServer.csproj.CopyComplete
 F:\00_Project\30_Minos\Minos\Minos.SocketServer\obj\Debug\Minos.SocketServer.exe
 F:\00_Project\30_Minos\Minos\Minos.SocketServer\obj\Debug\Minos.SocketServer.pdb
+F:\00_Project\30_Minos\Minos\Minos.SocketServer\bin\Debug\Minos.Domain.dll
+F:\00_Project\30_Minos\Minos\Minos.SocketServer\bin\Debug\Minos.Engine.dll
+F:\00_Project\30_Minos\Minos\Minos.SocketServer\bin\Debug\Minos.Domain.pdb
+F:\00_Project\30_Minos\Minos\Minos.SocketServer\bin\Debug\Minos.Engine.pdb

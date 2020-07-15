@@ -73,5 +73,15 @@
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Minos.Domain\Minos.Domain.csproj">
+      <Project>{116cfe6d-aef0-47d0-a079-29cc3de45f1e}</Project>
+      <Name>Minos.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Minos.Engine\Minos.Engine.csproj">
+      <Project>{98a7a886-a977-4025-a78b-d16309e24dbe}</Project>
+      <Name>Minos.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
