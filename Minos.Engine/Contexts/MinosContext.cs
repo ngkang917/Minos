@@ -31,14 +31,6 @@ namespace Minos.Engine.Contexts
             throw new NotImplementedException();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder.UseMySql("Server=localhost;User ID=root;Password=Pa$$w0rd;Database=Minos",
-            //    options =>
-            //    options.CharSet(CharSet.Utf8)
-            //    .CharSetBehavior(CharSetBehavior.AppendToAllAnsiColumns));
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

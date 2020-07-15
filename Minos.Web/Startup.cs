@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Minos.Engine.Contexts;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 
 namespace Minos.Web
 {
@@ -24,6 +28,17 @@ namespace Minos.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MinosContext>(options =>
+            {
+                options.UseMySql(Configuration.GetConnectionString("SqlConnection"),
+                    optionsBuilder =>
+                    {
+                        optionsBuilder.MigrationsAssembly("Minos.Web");
+                        optionsBuilder.CharSet(CharSet.Utf8).CharSetBehavior(CharSetBehavior.AppendToAllAnsiColumns);
+                    }
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

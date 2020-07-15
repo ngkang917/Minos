@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.Domain", "Minos.Domain\Minos.Domain.csproj", "{116CFE6D-AEF0-47D0-A079-29CC3DE45F1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.Domain", "Minos.Domain\Minos.Domain.csproj", "{116CFE6D-AEF0-47D0-A079-29CC3DE45F1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.Engine", "Minos.Engine\Minos.Engine.csproj", "{98A7A886-A977-4025-A78B-D16309E24DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.Engine", "Minos.Engine\Minos.Engine.csproj", "{98A7A886-A977-4025-A78B-D16309E24DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.Web", "Minos.Web\Minos.Web.csproj", "{8BA6E602-A128-4B50-AF75-68090EFFA104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.Web", "Minos.Web\Minos.Web.csproj", "{8BA6E602-A128-4B50-AF75-68090EFFA104}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
