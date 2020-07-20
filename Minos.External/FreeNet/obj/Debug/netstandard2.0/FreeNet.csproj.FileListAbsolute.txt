@@ -1,0 +1,17 @@
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\bin\Debug\netstandard2.0\FreeNet.deps.json
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\bin\Debug\netstandard2.0\FreeNet.dll
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\bin\Debug\netstandard2.0\FreeNet.pdb
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.csprojAssemblyReference.cache
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfoInputs.cache
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfo.cs
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.csproj.CoreCompileInputs.cache
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.dll
+E:\00_Work\80_소스분석\Socket\FreeNet-master\FreeNet\obj\Debug\netstandard2.0\FreeNet.pdb
+D:\iLiveSoft\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.deps.json
+D:\iLiveSoft\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.dll
+D:\iLiveSoft\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.pdb
+D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfoInputs.cache
+D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfo.cs
+D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.csproj.CoreCompileInputs.cache
+D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.dll
+D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.pdb

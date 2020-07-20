@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.Engine", "Minos.Engin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.Web", "Minos.Web\Minos.Web.csproj", "{8BA6E602-A128-4B50-AF75-68090EFFA104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.SocketServer", "Minos.SocketServer\Minos.SocketServer.csproj", "{5E4C2674-E4E9-4BBA-A98F-A8CE8470E6A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{54F2DF2C-3583-4C15-879D-2FF018901D66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeNet", "Minos.External\FreeNet\FreeNet.csproj", "{7C383633-E2C4-4176-801B-77DBB33B164A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.SocketServer.V1", "Minos.SocketServer.V1\Minos.SocketServer.V1.csproj", "{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,13 +33,20 @@ Global
 		{8BA6E602-A128-4B50-AF75-68090EFFA104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BA6E602-A128-4B50-AF75-68090EFFA104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BA6E602-A128-4B50-AF75-68090EFFA104}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E4C2674-E4E9-4BBA-A98F-A8CE8470E6A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E4C2674-E4E9-4BBA-A98F-A8CE8470E6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E4C2674-E4E9-4BBA-A98F-A8CE8470E6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E4C2674-E4E9-4BBA-A98F-A8CE8470E6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C383633-E2C4-4176-801B-77DBB33B164A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C383633-E2C4-4176-801B-77DBB33B164A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C383633-E2C4-4176-801B-77DBB33B164A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C383633-E2C4-4176-801B-77DBB33B164A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C383633-E2C4-4176-801B-77DBB33B164A} = {54F2DF2C-3583-4C15-879D-2FF018901D66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73A16CAC-1F2B-4A0F-96F8-0EB61D51624B}

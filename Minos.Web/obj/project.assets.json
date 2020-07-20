@@ -2462,11 +2462,12 @@
       ]
     },
     "System.ComponentModel.Primitives/4.3.0": {
-      "sha512": "KMVuoQ+8bMQ/Z59M3s64num5AD74X5YSqVc7ibwGkPTfmmkl2W8VuSxLRJtpw4KzQrSKUgR0BLbF0adPfcTSGQ==",
+      "sha512": "j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
       "type": "package",
       "path": "system.componentmodel.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -2500,11 +2501,12 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5162,23 +5164,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ngkang917\\.nuget\\packages\\": {},
+    "C:\\Users\\es-namgukim\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\00_Project\\30_Minos\\Minos\\Minos.Web\\Minos.Web.csproj",
+      "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.Web\\Minos.Web.csproj",
       "projectName": "Minos.Web",
-      "projectPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Web\\Minos.Web.csproj",
-      "packagesPath": "C:\\Users\\ngkang917\\.nuget\\packages\\",
-      "outputPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Web\\obj\\",
+      "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Web\\Minos.Web.csproj",
+      "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
+      "outputPath": "D:\\iLiveSoft\\Minos\\Minos.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ngkang917\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5191,11 +5193,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
-              "projectPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Domain\\Minos.Domain.csproj"
+            "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
+              "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj"
             },
-            "F:\\00_Project\\30_Minos\\Minos\\Minos.Engine\\Minos.Engine.csproj": {
-              "projectPath": "F:\\00_Project\\30_Minos\\Minos\\Minos.Engine\\Minos.Engine.csproj"
+            "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj": {
+              "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj"
             }
           }
         }

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Minos.SocketServer.V1/1.0.0": {
+        "dependencies": {
+          "FreeNet": "1.0.0"
+        },
+        "runtime": {
+          "Minos.SocketServer.V1.dll": {}
+        }
+      },
+      "FreeNet/1.0.0": {
+        "runtime": {
+          "FreeNet.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Minos.SocketServer.V1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FreeNet/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
