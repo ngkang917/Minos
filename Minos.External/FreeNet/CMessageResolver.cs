@@ -7,7 +7,7 @@ namespace FreeNet
 {
    	class Defines
 	{
-		public static readonly short HEADERSIZE = 4;
+		public static readonly short HEADERSIZE = 20;
 	}
 
     public delegate void CompletedMessageCallback(ArraySegment<byte> buffer);
@@ -95,6 +95,12 @@ namespace FreeNet
 		/// <param name="transffered"></param>
 		public void on_receive(byte[] buffer, int offset, int transffered, CompletedMessageCallback callback)
 		{
+
+			//string str = Encoding.UTF8.GetString(buffer, offset, transffered);
+			
+			// offset 데이터 시작 자리
+			// transffered 데이터 길이
+
 			// 이번 receive로 읽어오게 될 바이트 수.
 			this.remain_bytes = transffered;
 
@@ -107,24 +113,23 @@ namespace FreeNet
 			{
 				bool completed = false;
 
-				// 헤더만큼 못읽은 경우 헤더를 먼저 읽는다.
-				if (this.current_position < Defines.HEADERSIZE)
-				{
-					// 목표 지점 설정(헤더 위치까지 도달하도록 설정).
-					this.position_to_read = Defines.HEADERSIZE;
+                //헤더만큼 못읽은 경우 헤더를 먼저 읽는다.
+                if (this.current_position < Defines.HEADERSIZE)
+                {
+                    // 목표 지점 설정(헤더 위치까지 도달하도록 설정).
+                    this.position_to_read = Defines.HEADERSIZE;
 
                     completed = read_until(buffer, ref src_position);
-					if (!completed)
-					{
-						// 아직 다 못읽었으므로 다음 receive를 기다린다.
-						return;
-					}
 
-					// 헤더 하나를 온전히 읽어왔으므로 메시지 사이즈를 구한다.
+                    if (!completed)
+                    {
+                        return;
+                    }
+
+                    // 헤더 하나를 온전히 읽어왔으므로 메시지 사이즈를 구한다.
                     this.message_size = get_total_message_size();
 
                     // 메시지 사이즈가 0이하라면 잘못된 패킷으로 처리한다.
-                    // It was wrong message if size less than zero.
                     if (this.message_size <= 0)
                     {
                         clear_buffer();

@@ -27,13 +27,13 @@ namespace FreeNet
         }
 
         // 종료 요청. S -> C
-        const short SYS_CLOSE_REQ = 0;
+        const ushort SYS_CLOSE_REQ = 90;
         // 종료 응답. C -> S
-        const short SYS_CLOSE_ACK = -1;
+        const ushort SYS_CLOSE_ACK = 99;
         // 하트비트 시작. S -> C
-        public const short SYS_START_HEARTBEAT = -2;
+        public const ushort SYS_START_HEARTBEAT = 80;
         // 하트비트 갱신. C -> S
-        public const short SYS_UPDATE_HEARTBEAT = -3;
+        public const ushort SYS_UPDATE_HEARTBEAT = 81;
 
         // close중복 처리 방지를 위한 플래그.
         // 0 = 연결된 상태.
@@ -137,7 +137,8 @@ namespace FreeNet
             // active close를 위한 코딩.
             //   서버에서 종료하라고 연락이 왔는지 체크한다.
             //   만약 종료신호가 맞다면 disconnect를 호출하여 받은쪽에서 먼저 종료 요청을 보낸다.
-            switch (msg.protocol_id)
+
+            switch (msg.MIS_CMD)
             {
                 case SYS_CLOSE_REQ:
                     disconnect();
@@ -169,7 +170,7 @@ namespace FreeNet
             {
                 try
                 {
-                    switch (msg.protocol_id)
+                    switch (msg.MIS_CMD)
                     {
                         case SYS_CLOSE_ACK:
                             this.peer.on_removed();
@@ -186,7 +187,7 @@ namespace FreeNet
                 }
             }
 
-            if (msg.protocol_id == SYS_CLOSE_ACK)
+            if (msg.MIS_CMD == SYS_CLOSE_ACK)
             {
                 if (this.on_session_closed != null)
                 {
@@ -221,10 +222,10 @@ namespace FreeNet
 
             if (this.peer != null)
             {
-                CPacket msg = CPacket.create((short)-1);
+                CPacket msg = CPacket.Create((ushort)CUserToken.SYS_CLOSE_ACK);
                 if (this.dispatcher != null)
                 {
-                    this.dispatcher.on_message(this, new ArraySegment<byte>(msg.buffer, 0, msg.position));
+                    this.dispatcher.on_message(this, new ArraySegment<byte>(msg.Buffer, 0, msg.Position));
                 }
                 else
                 {
@@ -264,7 +265,7 @@ namespace FreeNet
         public void send(CPacket msg)
         {
             msg.record_size();
-            send(new ArraySegment<byte>(msg.buffer, 0, msg.position));
+            send(new ArraySegment<byte>(msg.Buffer, 0, msg.Position));
         }
 
 
@@ -417,7 +418,7 @@ namespace FreeNet
         /// </summary>
         void byebye()
         {
-            CPacket bye = CPacket.create(SYS_CLOSE_REQ);
+            CPacket bye = CPacket.Create(SYS_CLOSE_REQ);
             send(bye);
         }
 

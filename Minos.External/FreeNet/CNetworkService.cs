@@ -181,7 +181,7 @@ namespace FreeNet
 
 			begin_receive(client_socket, receive_args, send_args);
 
-            CPacket msg = CPacket.create((short)CUserToken.SYS_START_HEARTBEAT);
+            CPacket msg = CPacket.Create((ushort)CUserToken.SYS_START_HEARTBEAT);
             byte send_interval = 5;
             msg.push(send_interval);
             user_token.send(msg);

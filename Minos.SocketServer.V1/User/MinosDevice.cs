@@ -30,12 +30,12 @@ namespace Minos.SocketServer.V1.User
 
             switch (p)
             {
-                case Protocol.Chat_MSG_Req:
+                case Protocol.SERVER_CHK:
                     {
-                        string text = msg.pop_string();
+                        string text = msg.pop_start_code();
                         Console.WriteLine(text);
 
-                        CPacket response = CPacket.create((short)Protocol.Chat_MSG_Ack);
+                        CPacket response = CPacket.Create((ushort)Protocol.SERVER_CHK);
                         response.push(text);
                         send(response);
 
@@ -44,7 +44,7 @@ namespace Minos.SocketServer.V1.User
                             // 대량의 메시지를 한꺼번에 보낸 후 종료하는 시나리오 테스트.
                             for (int i = 0; i < 1000; ++i)
                             {
-                                CPacket dummy = CPacket.create((short)Protocol.Chat_MSG_Ack);
+                                CPacket dummy = CPacket.Create((ushort)Protocol.SERVER_CHK);
                                 dummy.push(i.ToString());
                                 send(dummy);
                             }
@@ -65,7 +65,7 @@ namespace Minos.SocketServer.V1.User
         public void send(CPacket msg)
         {
             msg.record_size();
-            this.token.send(new ArraySegment<byte>(msg.buffer, 0, msg.position));
+            this.token.send(new ArraySegment<byte>(msg.Buffer, 0, msg.Position));
         }
 
         public void send(ArraySegment<byte> data)

@@ -31,7 +31,7 @@ namespace FreeNet
 
         void send()
         {
-            CPacket msg = CPacket.create((short)CUserToken.SYS_UPDATE_HEARTBEAT);
+            CPacket msg = CPacket.Create((ushort)CUserToken.SYS_UPDATE_HEARTBEAT);
             this.server.send(msg);
         }
 
