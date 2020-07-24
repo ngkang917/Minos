@@ -52,7 +52,7 @@ namespace FreeNet
             this.Size = buffer.Count;
 
             // 프로토콜 아이디만 확인할 경우도 있으므로 미리 뽑아놓는다.
-            //this.MIS_CMD = pop_protocol_id();
+            this.MIS_CMD = pop_protocol_id();
             //this.Position = Defines.HEADERSIZE;
 
             this.Owner = owner;
@@ -65,7 +65,7 @@ namespace FreeNet
             this.Buffer = buffer;
 
             // 헤더는 읽을필요 없으니 그 이후부터 시작한다.
-            this.Position = Defines.HEADERSIZE;
+            this.Position = 20; //Defines.HEADERSIZE;
 
             this.Owner = owner;
         }
@@ -141,7 +141,7 @@ namespace FreeNet
             //this.buffer = new byte[1024];
 
             // 헤더는 나중에 넣을것이므로 데이터 부터 넣을 수 있도록 위치를 점프시켜놓는다.
-            this.Position = Defines.HEADERSIZE;
+            this.Position = Defines.MESSAGERSIZE;
 
             push_ushort(protocol_id);
         }
