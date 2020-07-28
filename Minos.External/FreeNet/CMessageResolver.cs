@@ -7,7 +7,7 @@ namespace FreeNet
 {
     class Defines
     {
-        public static readonly int HEADERSIZE = 0;
+        public static readonly int HEADERSIZE = 26;
     }
 
     public delegate void CompletedMessageCallback(ArraySegment<byte> buffer);
@@ -21,20 +21,15 @@ namespace FreeNet
     /// </summary>
     class CMessageResolver
     {
-        // 메시지 사이즈.
-        int message_size;
-
         // 진행중인 버퍼.
         byte[] message_buffer = new byte[1024];
-
-        // 현재 진행중인 버퍼의 인덱스를 가리키는 변수.
-        // 패킷 하나를 완성한 뒤에는 0으로 초기화 시켜줘야 한다.
+        // 메시지 사이즈.
+        int message_size;
+        // 현재 버퍼의 포인터 위치, 사용 완료 후 초기화 0
         int current_position;
-
-        // 읽어와야 할 목표 위치.
+        // 읽어 올 위치
         int position_to_read;
-
-        // 남은 사이즈.
+        // 전달 된 버퍼 길이
         int remain_bytes;
 
         public CMessageResolver()
@@ -55,23 +50,18 @@ namespace FreeNet
         /// <param name="transffered">데이터 길이</param>
         public void on_receive(byte[] buffer, int offset, int transffered, CompletedMessageCallback callback)
         {
-            // 이번 receive로 읽어오게 될 바이트 수.
-            this.remain_bytes = transffered;
+            this.remain_bytes = Convert.ToInt32(transffered);    // 읽어 올 길이
+            int src_position = offset;          // 시작 위치
 
-            // 원본 버퍼의 포지션값.
-            // 패킷이 여러개 뭉쳐 올 경우 원본 버퍼의 포지션은 계속 앞으로 가야 하는데 그 처리를 위한 변수이다.
-            int src_position = offset;
-
-            // 남은 데이터가 있다면 계속 반복한다.
+            // 짤려서 올 경우를 대비해서 반복 처리
             while (this.remain_bytes > 0)
             {
                 bool completed = false;
 
-                // 헤더만큼 못읽은 경우 헤더를 먼저 읽는다.
+                // 헤더 사이즈 보다 작을 경우
                 if (this.current_position < Defines.HEADERSIZE)
                 {
-                    // 목표 지점 설정(헤더 위치까지 도달하도록 설정).
-                    this.position_to_read = Defines.HEADERSIZE;
+                    this.position_to_read = Defines.HEADERSIZE;     // 헤더 위치까지 읽기
 
                     completed = read_until(buffer, ref src_position);
                     if (!completed)
@@ -163,16 +153,7 @@ namespace FreeNet
         /// <returns></returns>
         int get_total_message_size()
         {
-            if (Defines.HEADERSIZE == 2)
-            {
-                return BitConverter.ToInt16(this.message_buffer, 0);
-            }
-            else if (Defines.HEADERSIZE == 4)
-            {
-                return BitConverter.ToInt32(this.message_buffer, 0);
-            }
-
-            return 0;
+            return BitConverter.ToInt32(this.message_buffer, 22);
         }
 
         public void clear_buffer()

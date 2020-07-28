@@ -67,12 +67,12 @@ namespace FreeNet
             while (queue.Count > 0)
             {
                 CPacket msg = queue.Dequeue();
-                if (!this.service.usermanager.is_exist(msg.Owner))
+                if (!this.service.usermanager.is_exist(msg.owner))
                 {
                     continue;
                 }
 
-                msg.Owner.on_message(msg);
+                msg.owner.on_message(msg);
             }
         }
     }

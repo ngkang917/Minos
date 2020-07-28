@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{54
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeNet", "Minos.External\FreeNet\FreeNet.csproj", "{7C383633-E2C4-4176-801B-77DBB33B164A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.SocketServer.V1", "Minos.SocketServer.V1\Minos.SocketServer.V1.csproj", "{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minos.SocketServer.V1", "Minos.SocketServer.V1\Minos.SocketServer.V1.csproj", "{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minos.SocketClient", "Minos.SocketClient\Minos.SocketClient.csproj", "{B17496CA-1C3B-45F2-8C84-DA767DBDB4B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A05B78A-5F42-4CE2-8F7E-42139A6EE4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17496CA-1C3B-45F2-8C84-DA767DBDB4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17496CA-1C3B-45F2-8C84-DA767DBDB4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17496CA-1C3B-45F2-8C84-DA767DBDB4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17496CA-1C3B-45F2-8C84-DA767DBDB4B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

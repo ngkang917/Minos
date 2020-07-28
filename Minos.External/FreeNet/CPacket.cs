@@ -10,7 +10,12 @@ namespace FreeNet
     /// </summary>
     public class CPacket
     {
-        public CUserToken Owner { get; private set; }
+        public CUserToken owner { get; private set; }
+        public byte[] buffer { get; private set; }
+        public int position { get; private set; }
+        public int size { get; private set; }
+
+        public Int16 protocol_id { get; private set; }
 
         public byte[] Buffer { get; private set; }
         public int Position { get; private set; }
@@ -45,39 +50,46 @@ namespace FreeNet
         {
             // 참조로만 보관하여 작업한다.
             // 복사가 필요하면 별도로 구현해야 한다.
-            this.Buffer = buffer.Array;
+            this.buffer = buffer.Array;
 
             // 헤더는 읽을필요 없으니 그 이후부터 시작한다.
-            //this.Position = Defines.HEADERSIZE;
-            this.Size = buffer.Count;
+            this.position = Defines.HEADERSIZE;
+            this.size = buffer.Count;
 
             // 프로토콜 아이디만 확인할 경우도 있으므로 미리 뽑아놓는다.
-            this.MIS_CMD = pop_protocol_id();
-            //this.Position = Defines.HEADERSIZE;
+            this.protocol_id = pop_protocol_id();
+            this.position = Defines.HEADERSIZE;
 
-            this.Owner = owner;
+            this.owner = owner;
         }
 
         public CPacket(byte[] buffer, CUserToken owner)
         {
             // 참조로만 보관하여 작업한다.
             // 복사가 필요하면 별도로 구현해야 한다.
-            this.Buffer = buffer;
+            this.buffer = buffer;
 
             // 헤더는 읽을필요 없으니 그 이후부터 시작한다.
-            this.Position = 20; //Defines.HEADERSIZE;
+            this.position = Defines.HEADERSIZE;
 
-            this.Owner = owner;
+            this.owner = owner;
         }
+
 
         public CPacket()
         {
             this.Buffer = new byte[1024];
         }
 
-        public ushort pop_protocol_id()
+        public Int16 pop_protocol_id()
         {
-            return pop_ushort();
+            return pop_int16();
+        }
+        public Int16 pop_int16()
+        {
+            Int16 data = BitConverter.ToInt16(this.buffer, this.position);
+            this.position += sizeof(Int16);
+            return data;
         }
 
         public void copy_to(CPacket target)
