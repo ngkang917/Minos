@@ -141,7 +141,7 @@ namespace FreeNet
             //this.buffer = new byte[1024];
 
             // 헤더는 나중에 넣을것이므로 데이터 부터 넣을 수 있도록 위치를 점프시켜놓는다.
-            this.Position = Defines.MESSAGERSIZE;
+            this.Position = Defines.HEADERSIZE;
 
             push_ushort(protocol_id);
         }
