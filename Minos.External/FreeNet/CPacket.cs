@@ -55,6 +55,17 @@ namespace FreeNet
             this.MIS_DB_VER = BitConverter.ToUInt16(this.Buffer, 18);
             this.MIS_CMD = BitConverter.ToUInt16(this.Buffer, 20);
             this.MIS_SEND_DATA_SIZE = BitConverter.ToUInt16(this.Buffer, 22);
+            // 데이터 전달 시 받을 버퍼 생성
+            if (Size > 26)
+            {
+                this.MIS_DATA_SOCK_NO = BitConverter.ToUInt16(this.Buffer, 26);
+                this.MIS_DATA_CNT_N = BitConverter.ToUInt16(this.Buffer, 28);
+                this.MIS_DATA_N = new byte[MIS_DATA_CNT_N];
+                for (int i = 0; i < MIS_DATA_CNT_N; i++)
+                {
+                    this.MIS_DATA_N[i] = this.Buffer[30 + i];
+                }
+            }
 
             this.owner = owner;
         }
@@ -73,6 +84,17 @@ namespace FreeNet
             this.MIS_DB_VER = BitConverter.ToUInt16(this.Buffer, 18);
             this.MIS_CMD = BitConverter.ToUInt16(this.Buffer, 20);
             this.MIS_SEND_DATA_SIZE = BitConverter.ToUInt16(this.Buffer, 22);
+            if (Size > 26)
+            {
+                this.MIS_DATA_SOCK_NO = BitConverter.ToUInt16(this.Buffer, 26);
+                this.MIS_DATA_CNT_N = BitConverter.ToUInt16(this.Buffer, 28);
+                this.MIS_DATA_N = new byte[MIS_DATA_CNT_N];
+                for (int i = 0; i < MIS_DATA_CNT_N; i++)
+                {
+                    this.MIS_DATA_N[i] = this.Buffer[30 + i];
+                }
+            }
+
 
             this.owner = owner;
         }
