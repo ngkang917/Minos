@@ -135,9 +135,8 @@ namespace FreeNet
         public void on_message(CPacket msg)
         {
             // active close를 위한 코딩.
-            //   서버에서 종료하라고 연락이 왔는지 체크한다.
-            //   만약 종료신호가 맞다면 disconnect를 호출하여 받은쪽에서 먼저 종료 요청을 보낸다.
-
+            // 서버에서 종료하라고 연락이 왔는지 체크한다.
+            // 만약 종료신호가 맞다면 disconnect를 호출하여 받은쪽에서 먼저 종료 요청을 보낸다.
             switch (msg.MIS_CMD)
             {
                 case SYS_CLOSE_REQ:

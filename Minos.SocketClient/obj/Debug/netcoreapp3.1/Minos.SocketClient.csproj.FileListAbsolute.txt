@@ -1,0 +1,13 @@
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.exe
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.deps.json
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.runtimeconfig.json
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.runtimeconfig.dev.json
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.dll
+D:\iLiveSoft\Minos\Minos.SocketClient\bin\Debug\netcoreapp3.1\Minos.SocketClient.pdb
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.csprojAssemblyReference.cache
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.AssemblyInfoInputs.cache
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.AssemblyInfo.cs
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.csproj.CoreCompileInputs.cache
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.dll
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.pdb
+D:\iLiveSoft\Minos\Minos.SocketClient\obj\Debug\netcoreapp3.1\Minos.SocketClient.genruntimeconfig.cache

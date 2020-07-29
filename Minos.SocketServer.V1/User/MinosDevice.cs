@@ -2,6 +2,7 @@
 using Minos.SocketServer.V1.Define;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace Minos.SocketServer.V1.User
@@ -26,35 +27,45 @@ namespace Minos.SocketServer.V1.User
 
         void IPeer.on_message(CPacket msg)
         {
-            Protocol p = (Protocol)msg.pop_protocol_id();
+            byte[] buff = new byte[msg.MIS_SEND_DATA_SIZE];
+            uint point_tarket_position = 0;
+
+            Protocol p = (Protocol)msg.MIS_CMD;
 
             switch (p)
             {
                 case Protocol.SERVER_CHK:
                     {
-                        string text = msg.pop_start_code();
-                        Console.WriteLine(text);
 
+                        // 응답 메시지 생성
                         CPacket response = CPacket.Create((ushort)Protocol.SERVER_CHK);
                         response.push(text);
                         send(response);
 
-                        if (text.Equals("exit"))
-                        {
-                            // 대량의 메시지를 한꺼번에 보낸 후 종료하는 시나리오 테스트.
-                            for (int i = 0; i < 1000; ++i)
-                            {
-                                CPacket dummy = CPacket.Create((ushort)Protocol.SERVER_CHK);
-                                dummy.push(i.ToString());
-                                send(dummy);
-                            }
-
-                            this.token.ban();
-                        }
                     }
+                    break;
+
+                case Protocol.LOG_DATA:
+                    break;
+
+                case Protocol.RFID_SEND:
+                    break;
+
+                case Protocol.CENTER_DB_CALL:
+                    break;
+
+                case Protocol.USER_DB_CALL:
+                    break;
+
+                case Protocol.FW_CALL:
+                    break;
+
+                default:
                     break;
             }
 
+
+            // 응답 관련 함수는 여기에 정리하도록
         }
 
         void IPeer.on_removed()
@@ -71,6 +82,29 @@ namespace Minos.SocketServer.V1.User
         public void send(ArraySegment<byte> data)
         {
             this.token.send(data);
+        }
+
+        public void Socket_TxBuff_String_Addr(ref byte[] buffer, ref uint point_tarket_position, string value, int Str_Cnt)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            byte[] bytes = Encoding.GetEncoding("ksc_5601").GetBytes(value);
+            int length = bytes.Length;
+            Buffer.BlockCopy((Array)bytes, 0, (Array)buffer, (int)point_tarket_position, length);
+            point_tarket_position += (uint)length;
+            for (int index = length; index < Str_Cnt; ++index)
+                buffer[(int)point_tarket_position++] = (byte)0;
+        }
+
+        public void Socket_TxBuff_UInt16_Add(ref byte[] buffer, ref uint point_tarket_position, ushort buff)
+        {
+            buffer[(int)point_tarket_position++] = (byte)buff;
+            buffer[(int)point_tarket_position++] = (byte)((uint)buff >> 8);
+        }
+
+        public void Socket_TxBuff_UInt32_Add(ref byte[] buffer, ref uint point_tarket_position, uint buff)
+        {
+            Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)buff);
+            Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)(buff >> 16));
         }
     }
 }

@@ -14,10 +14,17 @@ namespace FreeNet
 
     /// <summary>
     /// [header][body] 구조를 갖는 데이터를 파싱하는 클래스.
-    /// - header : 데이터 사이즈. Defines.HEADERSIZE에 정의된 타입만큼의 크기를 갖는다.
-    ///				2바이트일 경우 Int16, 4바이트는 Int32로 처리하면 된다.
-    ///				본문의 크기가 Int16.Max값을 넘지 않는다면 2바이트로 처리하는것이 좋을것 같다.
-    /// - body : 메시지 본문.
+    /// - header : 헤더는 26바이트의 길이를 가진다.
+    ///   [Start_Code]
+    ///   [MAC_Address]
+    ///   [FW_Version]
+    ///   [DB_Version]
+    ///   [CMD]
+    ///   [Send_Data_Size]
+    /// - body : 메시지 본문으로 데이터를 주고 받는다.
+    ///   [DATA_Sock_No]
+    ///   [DATA_Cnt_n]
+    ///   [Data(n)]
     /// </summary>
     class CMessageResolver
     {
@@ -27,17 +34,17 @@ namespace FreeNet
         int message_size;
         // 현재 버퍼의 포인터 위치, 사용 완료 후 초기화 0
         int current_position;
-        // 읽어 올 위치
+        // 읽을 위치까지의 거리
         int position_to_read;
         // 전달 된 버퍼 길이
-        int remain_bytes;
+        int transffered_length;
 
         public CMessageResolver()
         {
             this.message_size = 0;
             this.current_position = 0;
             this.position_to_read = 0;
-            this.remain_bytes = 0;
+            this.transffered_length = 0;
         }
 
         /// <summary>
@@ -50,18 +57,25 @@ namespace FreeNet
         /// <param name="transffered">데이터 길이</param>
         public void on_receive(byte[] buffer, int offset, int transffered, CompletedMessageCallback callback)
         {
-            this.remain_bytes = Convert.ToInt32(transffered);    // 읽어 올 길이
-            int src_position = offset;          // 시작 위치
+            /* 1. transffered는 클라이언트에서 보내는 길이
+             * 2. Data Length는 중간에 받는 위치 값이 있음
+             * 3. 조건
+             *    a. 데이터가 정상적으로 잘 넘어 온 경우
+             *    b. 데이터가 비상적으로 넘어 온 경우
+             *    c. 데이터가 짧게 짤려서 넘어오는 경우
+             */   
+            this.transffered_length = Convert.ToInt32(transffered);     // 전달 된 길이 저장
+            int src_position = offset;                                  // 시작 위치 저장
 
             // 짤려서 올 경우를 대비해서 반복 처리
-            while (this.remain_bytes > 0)
+            while (this.transffered_length > 0)
             {
                 bool completed = false;
 
-                // 헤더 사이즈 보다 작을 경우
-                if (this.current_position < Defines.HEADERSIZE)
+                // 1. 현재 위치가 헤더보다 작을 경우
+                if (this.current_position < Defines.HEADERSIZE)     
                 {
-                    this.position_to_read = Defines.HEADERSIZE;     // 헤더 위치까지 읽기
+                    this.position_to_read = Defines.HEADERSIZE;    
 
                     completed = read_until(buffer, ref src_position);
                     if (!completed)
@@ -70,7 +84,7 @@ namespace FreeNet
                         return;
                     }
 
-                    // 헤더 하나를 온전히 읽어왔으므로 메시지 사이즈를 구한다.
+                    // 못해도 헤더는 다 읽음.
                     this.message_size = get_total_message_size();
 
                     // 메시지 사이즈가 0이하라면 잘못된 패킷으로 처리한다.
@@ -81,12 +95,12 @@ namespace FreeNet
                         return;
                     }
 
-                    // 다음 목표 지점.
+                    // 다음 목표 지점은 메시지 사이즈 만큼
                     this.position_to_read = this.message_size;
 
                     // 헤더를 다 읽었는데 더이상 가져올 데이터가 없다면 다음 receive를 기다린다.
                     // (예를들어 데이터가 조각나서 헤더만 오고 메시지는 다음번에 올 경우)
-                    if (this.remain_bytes <= 0)
+                    if (this.transffered_length <= 0)
                     {
                         return;
                     }
@@ -115,27 +129,26 @@ namespace FreeNet
         /// <returns>다 읽었으면 true, 데이터가 모자라서 못 읽었으면 false를 리턴한다.</returns>
         bool read_until(byte[] buffer, ref int src_position)
         {
-            // 읽어와야 할 바이트.
-            // 데이터가 분리되어 올 경우 이전에 읽어놓은 값을 빼줘서 부족한 만큼 읽어올 수 있도록 계산해 준다.
+            // 읽어야 하는 길이 계산(읽을 위치 - 현재 위치)
             int copy_size = this.position_to_read - this.current_position;
 
-            // 앗! 남은 데이터가 더 적다면 가능한 만큼만 복사한다.
-            if (this.remain_bytes < copy_size)
+            // 전달 받은 데이터가 읽어야 하는 길이보다 작은 경우, 읽어야 하는 길이는 넘어온 길이로 변경
+            if (this.transffered_length < copy_size)
             {
-                copy_size = this.remain_bytes;
+                copy_size = this.transffered_length;
             }
 
-            // 버퍼에 복사.
+            // 위 기준에 따라 라이트 버퍼에 정보를 저장
             Array.Copy(buffer, src_position, this.message_buffer, this.current_position, copy_size);
 
-            // 원본 버퍼 포지션 이동.
+            // 그리고 현재 위치 정보는 읽어야 하는 길이만큼 읽었으므로 읽은 길이 만큼 이동
             src_position += copy_size;
 
-            // 타겟 버퍼 포지션도 이동.
+            // 현재 위치 포지션도 이동.
             this.current_position += copy_size;
 
-            // 남은 바이트 수.
-            this.remain_bytes -= copy_size;
+            // 남아 있는 길이 정보 변경
+            this.transffered_length -= copy_size;
 
             // 목표지점에 도달 못했으면 false
             if (this.current_position < this.position_to_read)

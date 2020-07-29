@@ -11,11 +11,6 @@ namespace FreeNet
     public class CPacket
     {
         public CUserToken owner { get; private set; }
-        public byte[] buffer { get; private set; }
-        public int position { get; private set; }
-        public int size { get; private set; }
-
-        public Int16 protocol_id { get; private set; }
 
         public byte[] Buffer { get; private set; }
         public int Position { get; private set; }
@@ -50,15 +45,16 @@ namespace FreeNet
         {
             // 참조로만 보관하여 작업한다.
             // 복사가 필요하면 별도로 구현해야 한다.
-            this.buffer = buffer.Array;
+            this.Buffer = buffer.Array;
 
-            // 헤더는 읽을필요 없으니 그 이후부터 시작한다.
-            this.position = Defines.HEADERSIZE;
-            this.size = buffer.Count;
-
-            // 프로토콜 아이디만 확인할 경우도 있으므로 미리 뽑아놓는다.
-            this.protocol_id = pop_protocol_id();
-            this.position = Defines.HEADERSIZE;
+            // 버퍼 카운트로 사이즈 확인
+            this.Size = Buffer.Length;
+            this.MIS_START_CODE = Encoding.UTF8.GetString(this.Buffer, 0, 4);
+            this.MIS_MAC_ADDRESS = Encoding.UTF8.GetString(this.Buffer, 4, 12);
+            this.MIS_FW_VER = BitConverter.ToUInt16(this.Buffer, 16);
+            this.MIS_DB_VER = BitConverter.ToUInt16(this.Buffer, 18);
+            this.MIS_CMD = BitConverter.ToUInt16(this.Buffer, 20);
+            this.MIS_SEND_DATA_SIZE = BitConverter.ToUInt16(this.Buffer, 22);
 
             this.owner = owner;
         }
@@ -67,10 +63,16 @@ namespace FreeNet
         {
             // 참조로만 보관하여 작업한다.
             // 복사가 필요하면 별도로 구현해야 한다.
-            this.buffer = buffer;
+            this.Buffer = buffer;
 
-            // 헤더는 읽을필요 없으니 그 이후부터 시작한다.
-            this.position = Defines.HEADERSIZE;
+            // 버퍼 카운트로 사이즈 확인
+            this.Size = Buffer.Length;
+            this.MIS_START_CODE = Encoding.UTF8.GetString(this.Buffer, 0, 4);
+            this.MIS_MAC_ADDRESS = Encoding.UTF8.GetString(this.Buffer, 4, 12);
+            this.MIS_FW_VER = BitConverter.ToUInt16(this.Buffer, 16);
+            this.MIS_DB_VER = BitConverter.ToUInt16(this.Buffer, 18);
+            this.MIS_CMD = BitConverter.ToUInt16(this.Buffer, 20);
+            this.MIS_SEND_DATA_SIZE = BitConverter.ToUInt16(this.Buffer, 22);
 
             this.owner = owner;
         }
@@ -87,8 +89,8 @@ namespace FreeNet
         }
         public Int16 pop_int16()
         {
-            Int16 data = BitConverter.ToInt16(this.buffer, this.position);
-            this.position += sizeof(Int16);
+            Int16 data = BitConverter.ToInt16(this.Buffer, this.Position);
+            this.Position += sizeof(Int16);
             return data;
         }
 
