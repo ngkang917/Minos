@@ -36,6 +36,9 @@ namespace Minos.SocketServer.V1.User
             {
                 case Protocol.SERVER_CHK:
                     {
+                        //로그 작성
+                        string text = msg.MIS_MAC_ADDRESS;
+                        Console.WriteLine(text);
 
                         // 응답 메시지 생성
                         CPacket response = CPacket.Create((ushort)Protocol.SERVER_CHK);
