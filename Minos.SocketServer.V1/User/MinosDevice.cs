@@ -41,8 +41,8 @@ namespace Minos.SocketServer.V1.User
                         Console.WriteLine(text);
 
                         // 응답 메시지 생성
-                        CPacket response = CPacket.Create((ushort)Protocol.SERVER_CHK);
-                        response.push(text);
+                        CPacket response = CPacket.Create(msg.Buffer);
+                        //response.push(text);
                         send(response);
 
                     }
@@ -78,7 +78,7 @@ namespace Minos.SocketServer.V1.User
 
         public void send(CPacket msg)
         {
-            msg.record_size();
+            //msg.record_size();    헤더 정보를 변경하지 말것.
             this.token.send(new ArraySegment<byte>(msg.Buffer, 0, msg.Position));
         }
 

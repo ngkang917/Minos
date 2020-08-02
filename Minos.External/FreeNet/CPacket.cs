@@ -36,6 +36,14 @@ namespace FreeNet
             return packet;
         }
 
+        public static CPacket Create(byte[] buffer)
+        {
+            CPacket packet = new CPacket();
+            packet.Buffer = buffer;
+            packet.Position = buffer.Length;
+            return packet;
+        }
+
         public static void Destroy(CPacket packet)
         {
             //CPacketBufferManager.push(packet);

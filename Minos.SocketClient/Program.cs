@@ -19,7 +19,7 @@ namespace Minos.SocketClient
             sock.Connect(ep);
 
             string cmd = string.Empty;
-            byte[] receiverBuff = new byte[1024];
+            
 
             Console.WriteLine("Connected... Enter Q to exit");
 
@@ -36,7 +36,6 @@ namespace Minos.SocketClient
                         ushort DB_VERSION = 1;
                         ushort MISCOMMAND = 1;
                         uint SENDDATASIZE = 26;
-
                         Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
                         Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
                         Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
@@ -45,6 +44,7 @@ namespace Minos.SocketClient
                         Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
                     case "2":
+
                         break;
                     case "3":
                         break;
@@ -58,11 +58,21 @@ namespace Minos.SocketClient
                 sock.Send(buff, SocketFlags.None);
 
                 // (4) 서버에서 데이타 수신
+                byte[] receiverBuff = new byte[1024];
                 int n = sock.Receive(receiverBuff);
-                string data = Encoding.UTF8.GetString(receiverBuff, 0, n);
-                Console.WriteLine(data);
-            }
+         
+                
+                //int iMessageLength = BitConverter.ToInt32(receiverBuff, 22);
 
+                //string str = "";
+
+                //for (int i = 0; i < iMessageLength; i++)
+                //{
+                //    str += str.Length > 0? " " + receiverBuff[i].ToString() : receiverBuff[i].ToString();
+                //}
+                Console.WriteLine(n.ToString());
+                point_tarket_position = 0;
+            }
             // (5) 소켓 닫기
             sock.Close();
         }
