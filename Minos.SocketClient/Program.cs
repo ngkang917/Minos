@@ -12,6 +12,19 @@ namespace Minos.SocketClient
             // (1) 소켓 객체 생성 (TCP 소켓)
             uint point_tarket_position = 0;
 
+            string START_CODE = "";
+            string MAC_ADDRESS = "";
+            ushort FW_VERSION = 0;
+            ushort DB_VERSION = 0;
+            ushort MISCOMMAND = 0;
+            uint SENDDATASIZE = 0;
+            ushort DATASOCKNO = 0;
+            ushort DATACOUNTN = 0;
+            ushort USERID = 0;
+            ushort LOGTYPE = 0;
+            uint LOGTIME = 0;
+            uint data_point_tarket_position = 0;
+
             Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             // (2) 서버에 연결
@@ -19,7 +32,7 @@ namespace Minos.SocketClient
             sock.Connect(ep);
 
             string cmd = string.Empty;
-            
+
 
             Console.WriteLine("Connected... Enter Q to exit");
 
@@ -27,15 +40,18 @@ namespace Minos.SocketClient
             while ((cmd = Console.ReadLine()) != "Q")
             {
                 byte[] buff = new byte[1024];
+                byte[] dataBuff = new byte[512];
                 switch (cmd)
                 {
+                    // Client to Server
+                    // command 1: SERVER CHECK
                     case "1":
-                        string START_CODE = "MIS_";
-                        string MAC_ADDRESS = "98D8638A033E";
-                        ushort FW_VERSION = 1;
-                        ushort DB_VERSION = 1;
-                        ushort MISCOMMAND = 1;
-                        uint SENDDATASIZE = 26;
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 26;
                         Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
                         Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
                         Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
@@ -43,15 +59,84 @@ namespace Minos.SocketClient
                         Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
                         Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
+
+                    // Client to Server
+                    // command 2: LOG DATA
                     case "2":
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 62;
+                        DATACOUNTN = 32;
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DB_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
+                        Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DATASOCKNO);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DATACOUNTN);
+
+                        for (int i = 0; i < DATACOUNTN / 8; i++)
+                        {
+                            Socket_TxBuff_UInt16_Add(ref dataBuff, ref data_point_tarket_position, Convert.ToUInt16(i));
+                            Socket_TxBuff_UInt16_Add(ref dataBuff, ref data_point_tarket_position, Convert.ToUInt16(1));
+                            Socket_TxBuff_UInt32_Add(ref dataBuff, ref data_point_tarket_position, Convert.ToUInt32((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds));
+                        }
+
+                        dataBuff.CopyTo(buff, 31);
 
                         break;
+
+                    // Client to Server
+                    // command 3: RFID SEND
                     case "3":
                         break;
+
+                    // Client to Server
+                    // command 4: CENTER DB CALL
                     case "4":
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 26;
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DB_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
+                        Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
+
+                    // Client to Server
+                    // command 5: USER DB CALL
                     case "5":
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 26;
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DB_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
+                        Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
+
+                    // Client to Server
+                    // command 6: FW CALL
+                    case "6":
+                        break;
+
+                    default:
+                        Console.WriteLine("잘못 된 명령어 입니다!");
+                        continue;
                 }
 
                 // (3) 서버에 데이타 전송
@@ -68,12 +153,13 @@ namespace Minos.SocketClient
 
                 for (int i = 0; i < n; i++)
                 {
-                    str += str.Length > 0 
-                        ? " " + (receiverBuff[i].ToString().Length == 1 ? "0" + receiverBuff[i].ToString() : receiverBuff[i].ToString()) 
+                    str += str.Length > 0
+                        ? " " + (receiverBuff[i].ToString().Length == 1 ? "0" + receiverBuff[i].ToString() : receiverBuff[i].ToString())
                         : (receiverBuff[i].ToString().Length == 1 ? "0" + receiverBuff[i].ToString() : receiverBuff[i].ToString());
                 }
                 Console.WriteLine(str);
                 point_tarket_position = 0;
+                data_point_tarket_position = 0;
             }
             // (5) 소켓 닫기
             sock.Close();

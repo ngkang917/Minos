@@ -27,36 +27,30 @@ namespace Minos.SocketServer.V1.User
 
         void IPeer.on_message(CPacket msg)
         {
-            byte[] buff = new byte[msg.MIS_SEND_DATA_SIZE];
-            uint point_tarket_position = 0;
-
             Protocol p = (Protocol)msg.MIS_CMD;
-
             switch (p)
             {
                 case Protocol.SERVER_CHK:
-                    {
-                        //로그 작성
-                        string text = msg.MIS_MAC_ADDRESS;
-                        Console.WriteLine(text);
-
-                        // 응답 메시지 생성
-                        CPacket response = CPacket.Create(msg.Buffer);
-                        send(response);
-
-                    }
+                    //로그 작성
+                    DoAction(msg);
                     break;
 
                 case Protocol.LOG_DATA:
+                    //로그 작성
+                    DoAction(msg);
                     break;
 
                 case Protocol.RFID_SEND:
                     break;
 
                 case Protocol.CENTER_DB_CALL:
+                    //로그 작성
+                    DoAction(msg);
                     break;
 
                 case Protocol.USER_DB_CALL:
+                    //로그 작성
+                    DoAction(msg);
                     break;
 
                 case Protocol.FW_CALL:
@@ -108,5 +102,23 @@ namespace Minos.SocketServer.V1.User
             Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)buff);
             Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)(buff >> 16));
         }
+
+        public void DoAction(CPacket msg)
+        {
+            string log = $"FROM CLIENT >> COMMAND:{msg.MIS_CMD}, MAC:{msg.MIS_MAC_ADDRESS} - ";
+            string str = "";
+            for (int i = 0; i < msg.Buffer.Length; i++)
+            {
+                str += str.Length > 0
+                    ? " " + (msg.Buffer[i].ToString().Length == 1 ? "0" + msg.Buffer[i].ToString() : msg.Buffer[i].ToString())
+                    : (msg.Buffer[i].ToString().Length == 1 ? "0" + msg.Buffer[i].ToString() : msg.Buffer[i].ToString());
+            }
+            Console.WriteLine($"{log} {str}");
+
+
+            CPacket response = CPacket.Create(msg.Buffer);
+            send(response);
+        }
+
     }
 }
