@@ -42,7 +42,6 @@ namespace Minos.SocketServer.V1.User
 
                         // 응답 메시지 생성
                         CPacket response = CPacket.Create(msg.Buffer);
-                        //response.push(text);
                         send(response);
 
                     }

@@ -60,17 +60,19 @@ namespace Minos.SocketClient
                 // (4) 서버에서 데이타 수신
                 byte[] receiverBuff = new byte[1024];
                 int n = sock.Receive(receiverBuff);
-         
-                
+
+
                 //int iMessageLength = BitConverter.ToInt32(receiverBuff, 22);
 
-                //string str = "";
+                string str = "";
 
-                //for (int i = 0; i < iMessageLength; i++)
-                //{
-                //    str += str.Length > 0? " " + receiverBuff[i].ToString() : receiverBuff[i].ToString();
-                //}
-                Console.WriteLine(n.ToString());
+                for (int i = 0; i < n; i++)
+                {
+                    str += str.Length > 0 
+                        ? " " + (receiverBuff[i].ToString().Length == 1 ? "0" + receiverBuff[i].ToString() : receiverBuff[i].ToString()) 
+                        : (receiverBuff[i].ToString().Length == 1 ? "0" + receiverBuff[i].ToString() : receiverBuff[i].ToString());
+                }
+                Console.WriteLine(str);
                 point_tarket_position = 0;
             }
             // (5) 소켓 닫기

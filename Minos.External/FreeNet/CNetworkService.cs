@@ -181,10 +181,12 @@ namespace FreeNet
 
 			begin_receive(client_socket, receive_args, send_args);
 
-            CPacket msg = CPacket.Create((ushort)CUserToken.SYS_START_HEARTBEAT);
-            byte send_interval = 5;
-            msg.push(send_interval);
-            user_token.send(msg);
+            // 소켓 연결 후 연결 상태 확인을 위한 비트를 전달
+            // 향후 이 부분을 어떻게 활용할지 논의 필요
+            //CPacket msg = CPacket.Create((ushort)CUserToken.SYS_START_HEARTBEAT);
+            //byte send_interval = 5;
+            //msg.push(send_interval);
+            //user_token.send(msg);
         }
 
 		void begin_receive(Socket socket, SocketAsyncEventArgs receive_args, SocketAsyncEventArgs send_args)

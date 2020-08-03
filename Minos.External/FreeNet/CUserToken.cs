@@ -143,25 +143,25 @@ namespace FreeNet
                     disconnect();
                     return;
 
-                case SYS_START_HEARTBEAT:
-                    {
-                        // 순서대로 파싱해야 하므로 프로토콜 아이디는 버린다.
-                        msg.pop_protocol_id();
-                        // 전송 인터벌.
-                        byte interval = msg.pop_byte();
-                        this.heartbeat_sender = new CHeartbeatSender(this, interval);
+                //case SYS_START_HEARTBEAT:
+                //    {
+                //        // 순서대로 파싱해야 하므로 프로토콜 아이디는 버린다.
+                //        msg.pop_protocol_id();
+                //        // 전송 인터벌.
+                //        byte interval = msg.pop_byte();
+                //        this.heartbeat_sender = new CHeartbeatSender(this, interval);
 
-                        if (this.auto_heartbeat)
-                        {
-                            start_heartbeat();
-                        }
-                    }
-                    return;
+                //        if (this.auto_heartbeat)
+                //        {
+                //            start_heartbeat();
+                //        }
+                //    }
+                //    return;
 
-                case SYS_UPDATE_HEARTBEAT:
-                    //Console.WriteLine("heartbeat : " + DateTime.Now);
-                    this.latest_heartbeat_time = DateTime.Now.Ticks;
-                    return;
+                //case SYS_UPDATE_HEARTBEAT:
+                //    //Console.WriteLine("heartbeat : " + DateTime.Now);
+                //    this.latest_heartbeat_time = DateTime.Now.Ticks;
+                //    return;
             }
 
 
@@ -263,7 +263,7 @@ namespace FreeNet
 
         public void send(CPacket msg)
         {
-            msg.record_size();
+            //msg.record_size();    헤더에 사이즈 길이를 넣는 함수인데 미 사용
             send(new ArraySegment<byte>(msg.Buffer, 0, msg.Position));
         }
 
