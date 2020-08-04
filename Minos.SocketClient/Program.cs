@@ -93,6 +93,18 @@ namespace Minos.SocketClient
                     // Client to Server
                     // command 3: RFID SEND
                     case "3":
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 26;
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DB_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
+                        Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
 
                     // Client to Server
@@ -132,6 +144,18 @@ namespace Minos.SocketClient
                     // Client to Server
                     // command 6: FW CALL
                     case "6":
+                        START_CODE = "MIS_";
+                        MAC_ADDRESS = "98D8638A033E";
+                        FW_VERSION = 1;
+                        DB_VERSION = 1;
+                        MISCOMMAND = Convert.ToUInt16(cmd);
+                        SENDDATASIZE = 26;
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, START_CODE, START_CODE.Length);
+                        Socket_TxBuff_String_Addr(ref buff, ref point_tarket_position, MAC_ADDRESS, START_CODE.Length);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, FW_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, DB_VERSION);
+                        Socket_TxBuff_UInt16_Add(ref buff, ref point_tarket_position, MISCOMMAND);
+                        Socket_TxBuff_UInt32_Add(ref buff, ref point_tarket_position, SENDDATASIZE);
                         break;
 
                     default:

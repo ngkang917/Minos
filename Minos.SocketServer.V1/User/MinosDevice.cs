@@ -27,8 +27,7 @@ namespace Minos.SocketServer.V1.User
 
         void IPeer.on_message(CPacket msg)
         {
-            Protocol p = (Protocol)msg.MIS_CMD;
-            switch (p)
+            switch ((Protocol)msg.MIS_CMD)
             {
                 case Protocol.SERVER_CHK:
                     //로그 작성
@@ -41,6 +40,7 @@ namespace Minos.SocketServer.V1.User
                     break;
 
                 case Protocol.RFID_SEND:
+                    DoAction(msg);
                     break;
 
                 case Protocol.CENTER_DB_CALL:
@@ -54,6 +54,7 @@ namespace Minos.SocketServer.V1.User
                     break;
 
                 case Protocol.FW_CALL:
+                    DoAction(msg);
                     break;
 
                 default:
@@ -80,28 +81,7 @@ namespace Minos.SocketServer.V1.User
             this.token.send(data);
         }
 
-        public void Socket_TxBuff_String_Addr(ref byte[] buffer, ref uint point_tarket_position, string value, int Str_Cnt)
-        {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            byte[] bytes = Encoding.GetEncoding("ksc_5601").GetBytes(value);
-            int length = bytes.Length;
-            Buffer.BlockCopy((Array)bytes, 0, (Array)buffer, (int)point_tarket_position, length);
-            point_tarket_position += (uint)length;
-            for (int index = length; index < Str_Cnt; ++index)
-                buffer[(int)point_tarket_position++] = (byte)0;
-        }
 
-        public void Socket_TxBuff_UInt16_Add(ref byte[] buffer, ref uint point_tarket_position, ushort buff)
-        {
-            buffer[(int)point_tarket_position++] = (byte)buff;
-            buffer[(int)point_tarket_position++] = (byte)((uint)buff >> 8);
-        }
-
-        public void Socket_TxBuff_UInt32_Add(ref byte[] buffer, ref uint point_tarket_position, uint buff)
-        {
-            Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)buff);
-            Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)(buff >> 16));
-        }
 
         public void DoAction(CPacket msg)
         {
