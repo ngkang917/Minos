@@ -1,5 +1,8 @@
 ﻿using FreeNet;
+using Microsoft.Extensions.Configuration;
+using Minos.SocketServer.V1.Define;
 using System;
+using System.IO;
 
 namespace Minos.SocketServer.V1
 {
@@ -7,15 +10,18 @@ namespace Minos.SocketServer.V1
     {
         static void Main(string[] args)
         {
+            // appsetting.json 파일 내부 설정 정보를 활용하도록 구성
+            var config = GetConfiguration().GetSection("ServerSetting").Get<SeverSetting>();
+
+            // 소켓 서버 환경 구성
             MinosServer server = MinosServer.Instance;
-            
             server.Start(new Config()
             {
-                _maxConnectionCount = 10000,
-                _bufferSize = 1024,
-                _ip = "0.0.0.0",
-                _port = 7979,
-                _backLog = 100
+                _maxConnectionCount = config.MaxConnectionCount,
+                _bufferSize = config.BufferSize,
+                _ip = config.IPAddress,
+                _port = config.Port,
+                _backLog = config.BackLog
             });
 
             // 서버에서 하트비트 체크를 끌때 사용함.
@@ -35,6 +41,19 @@ namespace Minos.SocketServer.V1
                 }
                 System.Threading.Thread.Sleep(1000);
             }
+        }
+
+        /// <summary>
+        /// 환경 설정 정보를 가져오는 함수
+        /// </summary>
+        /// <returns>IConfiguration</returns>
+        private static IConfiguration GetConfiguration()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            return builder.Build();
         }
     }
 }

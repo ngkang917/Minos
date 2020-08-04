@@ -31,36 +31,35 @@ namespace Minos.SocketServer.V1.User
             {
                 case Protocol.SERVER_CHK:
                     //로그 작성
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 case Protocol.LOG_DATA:
                     //로그 작성
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 case Protocol.RFID_SEND:
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 case Protocol.CENTER_DB_CALL:
                     //로그 작성
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 case Protocol.USER_DB_CALL:
                     //로그 작성
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 case Protocol.FW_CALL:
-                    DoAction(msg);
+                    DoEcho(msg);
                     break;
 
                 default:
                     break;
             }
-
 
             // 응답 관련 함수는 여기에 정리하도록
         }
@@ -81,9 +80,7 @@ namespace Minos.SocketServer.V1.User
             this.token.send(data);
         }
 
-
-
-        public void DoAction(CPacket msg)
+        public void DoEcho(CPacket msg)
         {
             string log = $"FROM CLIENT >> COMMAND:{msg.MIS_CMD}, MAC:{msg.MIS_MAC_ADDRESS} - ";
             string str = "";
