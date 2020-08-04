@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OtPbER6vzYp2Q/UUAfy61xwTzCTOLfqZPqCeOSy7Te/e+fvj9Bv89LPM535Xk0Wz0lhsRjetYxB2EmLcPApkCw==",
+  "dgSpecHash": "Mz2AZAssWI0QILNqUmSa+HmiMSsez0CBBUiNEDr/8FRpbHY/1kT/DEnO/Q462cKL038iadtGpeTM8IcGBUtgLw==",
   "success": true,
-  "projectFilePath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj",
+  "projectFilePath": "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\mediatr\\8.0.2\\mediatr.8.0.2.nupkg.sha512",
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+    "C:\\Users\\강남구\\.nuget\\packages\\mediatr\\8.0.2\\mediatr.8.0.2.nupkg.sha512",
+    "C:\\Users\\강남구\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\강남구\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\강남구\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -15,3 +15,11 @@ D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.Assem
 D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.csproj.CoreCompileInputs.cache
 D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.dll
 D:\iLiveSoft\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.pdb
+D:\02_Dev\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.deps.json
+D:\02_Dev\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.dll
+D:\02_Dev\Minos\Minos.External\FreeNet\bin\Debug\netstandard2.0\FreeNet.pdb
+D:\02_Dev\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfoInputs.cache
+D:\02_Dev\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.AssemblyInfo.cs
+D:\02_Dev\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.csproj.CoreCompileInputs.cache
+D:\02_Dev\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.dll
+D:\02_Dev\Minos\Minos.External\FreeNet\obj\Debug\netstandard2.0\FreeNet.pdb

@@ -34,3 +34,15 @@ D:\iLiveSoft\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.csproj.Cor
 D:\iLiveSoft\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.csproj.CopyComplete
 D:\iLiveSoft\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.dll
 D:\iLiveSoft\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.pdb
+D:\02_Dev\Minos\Minos.Engine\bin\Debug\netstandard2.0\Minos.Engine.deps.json
+D:\02_Dev\Minos\Minos.Engine\bin\Debug\netstandard2.0\Minos.Engine.dll
+D:\02_Dev\Minos\Minos.Engine\bin\Debug\netstandard2.0\Minos.Engine.pdb
+D:\02_Dev\Minos\Minos.Engine\bin\Debug\netstandard2.0\Minos.Domain.dll
+D:\02_Dev\Minos\Minos.Engine\bin\Debug\netstandard2.0\Minos.Domain.pdb
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.csprojAssemblyReference.cache
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.AssemblyInfoInputs.cache
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.AssemblyInfo.cs
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.csproj.CoreCompileInputs.cache
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.csproj.CopyComplete
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.dll
+D:\02_Dev\Minos\Minos.Engine\obj\Debug\netstandard2.0\Minos.Engine.pdb

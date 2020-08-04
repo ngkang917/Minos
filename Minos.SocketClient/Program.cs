@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -9,6 +11,8 @@ namespace Minos.SocketClient
     {
         static void Main(string[] args)
         {
+            var config = GetConfiguration().GetSection("ClientSetting").Get<ClientSetting>();
+
             // (1) 소켓 객체 생성 (TCP 소켓)
             uint point_tarket_position = 0;
 
@@ -28,7 +32,7 @@ namespace Minos.SocketClient
             Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             // (2) 서버에 연결
-            var ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7979);
+            var ep = new IPEndPoint(IPAddress.Parse(config.IPAddress), config.Port);
             sock.Connect(ep);
 
             string cmd = string.Empty;
@@ -210,6 +214,19 @@ namespace Minos.SocketClient
         {
             Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)buff);
             Socket_TxBuff_UInt16_Add(ref buffer, ref point_tarket_position, (ushort)(buff >> 16));
+        }
+
+        /// <summary>
+        /// 환경 설정 정보를 가져오는 함수
+        /// </summary>
+        /// <returns>IConfiguration</returns>
+        private static IConfiguration GetConfiguration()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            return builder.Build();
         }
     }
 

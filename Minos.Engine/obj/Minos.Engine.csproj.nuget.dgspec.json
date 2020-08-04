@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj": {}
+    "D:\\02_Dev\\Minos\\Minos.Engine\\Minos.Engine.csproj": {}
   },
   "projects": {
-    "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
+    "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj",
+        "projectUniqueName": "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj",
         "projectName": "Minos.Domain",
-        "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj",
-        "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
-        "outputPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\obj\\",
+        "projectPath": "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj",
+        "packagesPath": "C:\\Users\\강남구\\.nuget\\packages\\",
+        "outputPath": "D:\\02_Dev\\Minos\\Minos.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\강남구\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,24 +63,21 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj": {
+    "D:\\02_Dev\\Minos\\Minos.Engine\\Minos.Engine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj",
+        "projectUniqueName": "D:\\02_Dev\\Minos\\Minos.Engine\\Minos.Engine.csproj",
         "projectName": "Minos.Engine",
-        "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Engine\\Minos.Engine.csproj",
-        "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
-        "outputPath": "D:\\iLiveSoft\\Minos\\Minos.Engine\\obj\\",
+        "projectPath": "D:\\02_Dev\\Minos\\Minos.Engine\\Minos.Engine.csproj",
+        "packagesPath": "C:\\Users\\강남구\\.nuget\\packages\\",
+        "outputPath": "D:\\02_Dev\\Minos\\Minos.Engine\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\강남구\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,8 +90,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
-                "projectPath": "D:\\iLiveSoft\\Minos\\Minos.Domain\\Minos.Domain.csproj"
+              "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj": {
+                "projectPath": "D:\\02_Dev\\Minos\\Minos.Domain\\Minos.Domain.csproj"
               }
             }
           }
@@ -144,7 +138,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

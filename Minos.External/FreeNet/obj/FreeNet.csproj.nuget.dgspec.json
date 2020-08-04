@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj": {}
+    "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj": {}
   },
   "projects": {
-    "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj": {
+    "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
+        "projectUniqueName": "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
         "projectName": "FreeNet",
-        "projectPath": "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
-        "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
-        "outputPath": "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\obj\\",
+        "projectPath": "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
+        "packagesPath": "C:\\Users\\강남구\\.nuget\\packages\\",
+        "outputPath": "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\강남구\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

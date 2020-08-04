@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\iLiveSoft\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj": {}
+    "D:\\02_Dev\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj": {}
   },
   "projects": {
-    "D:\\iLiveSoft\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj": {
+    "D:\\02_Dev\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\iLiveSoft\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj",
+        "projectUniqueName": "D:\\02_Dev\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj",
         "projectName": "Minos.SocketClient",
-        "projectPath": "D:\\iLiveSoft\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj",
-        "packagesPath": "C:\\Users\\es-namgukim\\.nuget\\packages\\",
-        "outputPath": "D:\\iLiveSoft\\Minos\\Minos.SocketClient\\obj\\",
+        "projectPath": "D:\\02_Dev\\Minos\\Minos.SocketClient\\Minos.SocketClient.csproj",
+        "packagesPath": "C:\\Users\\강남구\\.nuget\\packages\\",
+        "outputPath": "D:\\02_Dev\\Minos\\Minos.SocketClient\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\es-namgukim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\강남구\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +37,28 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

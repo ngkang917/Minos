@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ydh1iHZTJcWEnmnC2bp3cxdYfilcBALhYODlRcRvQ7uReUnFu1Lzn/kLUpmHJya0sM/0EXyut/tQk+dnzQDb7w==",
+  "dgSpecHash": "j7rdihPdr1yDcttQovjfYxuof2umNClq8EtLTFaW3F7KdaZSCrpUdEOBb38tI95tComIbQDPmW/9DtDnag7Lsw==",
   "success": true,
-  "projectFilePath": "D:\\iLiveSoft\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
+  "projectFilePath": "D:\\02_Dev\\Minos\\Minos.External\\FreeNet\\FreeNet.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\es-namgukim\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\강남구\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\강남구\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -24,3 +24,11 @@ D:\iLiveSoft\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.AssemblyIn
 D:\iLiveSoft\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.csproj.CoreCompileInputs.cache
 D:\iLiveSoft\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.dll
 D:\iLiveSoft\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.pdb
+D:\02_Dev\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.deps.json
+D:\02_Dev\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.dll
+D:\02_Dev\Minos\Minos.Domain\bin\Debug\netstandard2.0\Minos.Domain.pdb
+D:\02_Dev\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.AssemblyInfoInputs.cache
+D:\02_Dev\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.AssemblyInfo.cs
+D:\02_Dev\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.csproj.CoreCompileInputs.cache
+D:\02_Dev\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.dll
+D:\02_Dev\Minos\Minos.Domain\obj\Debug\netstandard2.0\Minos.Domain.pdb
